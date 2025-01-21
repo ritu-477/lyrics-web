@@ -7,7 +7,7 @@ const Header = () => {
         e.preventDefault()
     )
     return (
-            <div className='max-w-[1160px] mx-auto px-4'>
+            <div className='container mx-auto'>
             <div className='w-full flex items-center justify-between header-shadow bg-white rounded-[20px] pl-[38px] pr-3 py-[10px] gap-4 max-md:px-3 max-w-[1128px]'>
                     <a href="#logo"><img src="/assets/images/webp/nav-logo.webp" alt="nav-logo" className='h-[26.42px] max-sm:h-[22px]' /></a>
                     <form onSubmit={handleSubmit} className='border border-light-purple max-w-[650px] max-md:hidden max-xl:max-w-[500px] max-lg:max-w-[300px] w-full rounded-full flex items-center pr-[7px] overflow-hidden'>
