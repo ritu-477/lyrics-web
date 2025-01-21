@@ -24,10 +24,10 @@ const Hero = () => {
             <div className='container'>
                 <div className='flex items-center gap-[15px] pt-[17px] max-xl:overflow-x-auto pb-2'>
                     <div className='flex items-center gap-[5px]'>
-                        <CustomButton customOnClick={() => handleDomainChange("all")} myClass="!text-xs px-[13.48px] py-[5.84px] !bg-black text-white hover:text-black hover:!bg-transparent" text="All" />
-                        <CustomButton customOnClick={() => handleDomainChange("pop")} myClass="!text-xs text-custom-black py-[5.84px] px-[11.37px] hover:!bg-custom-black hover:text-white" text="Pop" />
-                        <CustomButton customOnClick={() => handleDomainChange("rock")} myClass="!text-xs text-custom-black py-[5.84px] px-[11.8px] hover:!bg-custom-black hover:text-white" text="Rock" />
-                        <CustomButton customOnClick={() => handleDomainChange("music")} myClass="!text-xs text-custom-black py-[5.84px] px-[16.7px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]" text="More" icon={<DownArrow myClass="group-hover:stroke-white transition-all duration-300" />} />
+                        <CustomButton customOnClick={() => handleDomainChange("all")} classStyle="!text-xs px-[13.48px] py-[5.84px] !bg-black text-white hover:text-black hover:!bg-transparent" text="All" />
+                        <CustomButton customOnClick={() => handleDomainChange("pop")} classStyle="!text-xs text-custom-black py-[5.84px] px-[11.37px] hover:!bg-custom-black hover:text-white" text="Pop" />
+                        <CustomButton customOnClick={() => handleDomainChange("rock")} classStyle="!text-xs text-custom-black py-[5.84px] px-[11.8px] hover:!bg-custom-black hover:text-white" text="Rock" />
+                        <CustomButton customOnClick={() => handleDomainChange("music")} classStyle="!text-xs text-custom-black py-[5.84px] px-[16.7px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]" text="More" icon={<DownArrow myClass="group-hover:stroke-white transition-all duration-300" />} />
                     </div>
                     <div className='flex items-center gap-[2px]'>
                         {ALPHABET_LIST.map(function (item, index) {
