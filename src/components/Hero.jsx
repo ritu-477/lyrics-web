@@ -7,7 +7,7 @@ import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
     const [text, setText] = useState("HIT ME HARD AND ALL")
-    const [alphabetText, setAlphaText] = useState()
+    const [alphabetText, setAlphabetText] = useState()
     const [activeButton, setActiveButton] = useState("all") 
     const navigate = useNavigate()
 
@@ -18,7 +18,7 @@ const Hero = () => {
     }
 
     const handleChange = (newText) => {
-        setAlphaText(`${newText}`)
+        setAlphabetText(`${newText}`)
     }
 
     return (
