@@ -17,7 +17,7 @@ const Header = () => {
                     <CustomButton icon={<SearchIcon classStyle="transition-all duration-300 group-hover:fill-black" />} classStyle="flex group hover:!bg-white items-center md:hidden justify-center !rounded-full !py-[10.34px] !px-[10.34px] !bg-custom-black" />
                     <div className='flex items-center gap-5 max-sm:gap-2'>
                         <CustomButton text="Login" classStyle="!border-none text-custom-black !font-normal hover:!text-blue-600" />
-                        <CustomButton text="Sign Up" classStyle="!bg-custom-black px-[25px] py-[9px] text-white hover:!bg-transparent hover:text-black" />
+                        <CustomButton text="Sign Up" classStyle="!bg-custom-black px-3 sm:px-[25px] py-[9px] text-white hover:!bg-transparent hover:text-black" />
                     </div>
                 </div>
             </div>
