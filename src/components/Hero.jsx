@@ -8,13 +8,13 @@ import { useNavigate } from 'react-router-dom'
 const Hero = () => {
     const [text, setText] = useState("HIT ME HARD AND ALL")
     const [alphabetText, setAlphaText] = useState()
-    const [activeDomain, setActiveDomain] = useState("all") 
+    const [activeButton, setActiveButton] = useState("all") 
     const navigate = useNavigate()
 
-    const handleDomainChange = (newDomain) => {
-        setActiveDomain(newDomain) 
-        navigate(`?value=${newDomain}`);
-        setText(`HIT ME HARD AND ${newDomain.toUpperCase()}`)
+    const handleTextChange = (newText) => {
+        setActiveButton(newText) 
+        navigate(`?value=${newText}`);
+        setText(`HIT ME HARD AND ${newText.toUpperCase()}`)
     }
 
     const handleChange = (newText) => {
@@ -30,11 +30,11 @@ const Hero = () => {
                         {["all", "pop", "rock", "music"].map((domain) => (
                             <CustomButton
                                 key={domain}
-                                customOnClick={() => handleDomainChange(domain)}
+                                customOnClick={() => handleTextChange(domain)}
                                 classStyle={`!text-xs flex items-center gap-[5px] py-[5.84px] group ${domain === "music"
                                         ? "!px-[9.5px]" 
                                         : "px-[13.48px]" 
-                                    } ${activeDomain === domain
+                                    } ${activeButton === domain
                                         ? "!bg-black text-white"
                                         : "text-custom-black hover:!bg-custom-black hover:text-white"
                                     }`}
@@ -43,7 +43,6 @@ const Hero = () => {
                             />
                         ))}
                     </div>
-
                     <div className='flex items-center gap-[2px]'>
                         {ALPHABET_LIST.map((item, index) => (
                             <a
