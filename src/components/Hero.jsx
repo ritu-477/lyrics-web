@@ -94,7 +94,7 @@ const Hero = () => {
                     </div>
                 </div>
                 <div className='bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20'>
-                    <h1 className='font-montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl'>{text}</h1>
+                    <h1 className='font-Montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl'>{text}</h1>
                     <img src="/assets/images/webp/hero.webp" alt="hero" className='size-[261px] max-lg:size-48 max-sm:mx-auto max-sm:mt-4' />
                     <div className='absolute flex items-center gap-[26px] -bottom-16 max-lg:-bottom-10 max-sm:-bottom-6'>
                         <img src="/assets/images/webp/profile.webp" alt="profile" className='size-[206px] max-lg:size-32 max-sm:size-20' />
