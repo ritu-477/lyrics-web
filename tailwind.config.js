@@ -28,8 +28,6 @@ module.exports = {
         'custom-xl': "150%",
         'custom-2xl': "131.25%",
         'custom-3xl': "121.06%",
-
-
       },
 
       fontFamily: {
