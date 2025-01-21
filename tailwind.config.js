@@ -20,7 +20,8 @@ module.exports = {
         'off-white': "#FAFAFF",
         'custom-black': "#14191C",
         'custom-gray': "#333333",
-        'light-purple':"#DBDBF3"
+        'light-purple': "#DBDBF3",
+        'light-gray':"#CECECE"
       },
 
       lineHeight: {

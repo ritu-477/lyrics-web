@@ -27,19 +27,17 @@ const Hero = () => {
             <div className='container'>
                 <div className='flex items-center gap-[15px] pt-[17px] max-xl:overflow-x-auto pb-2'>
                     <div className='flex items-center gap-[5px]'>
-                        {["all", "pop", "rock", "music"].map((domain) => (
+                        {["all", "pop", "rock", "music"].map((index) => (
                             <CustomButton
-                                key={domain}
-                                customOnClick={() => handleTextChange(domain)}
-                                classStyle={`!text-xs flex items-center gap-[5px] py-[5.84px] group ${domain === "music"
-                                        ? "!px-[9.5px]" 
-                                        : "px-[13.48px]" 
-                                    } ${activeButton === domain
+                                key={index}
+                                customOnClick={() => handleTextChange(index)}
+                                classStyle={`!text-xs flex items-center gap-[5px] py-[5.84px] group text-custom-black ${index === "music"? "!px-[7.2px]" : "px-3" 
+                                    } ${activeButton === index
                                         ? "!bg-black text-white"
                                         : "text-custom-black hover:!bg-custom-black hover:text-white"
                                     }`}
-                                text={domain.charAt(0).toUpperCase() + domain.slice(1)}
-                                icon={domain === "music" && <DownArrow classStyle="group-hover:stroke-white transition-all duration-300" />}
+                                text={index.charAt(0).toUpperCase() + index.slice(1)}
+                                icon={index === "music" && <DownArrow classStyle="group-hover:stroke-white transition-all duration-300" />}
                             />
                         ))}
                     </div>
@@ -63,7 +61,7 @@ const Hero = () => {
                         <img src="/assets/images/webp/profile.webp" alt="profile" className='size-[206px] max-lg:size-32 max-sm:size-20 pointer-events-none' />
                         <div>
                             <p className='font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg'>Billie Eilish {alphabetText}</p>
-                            <p className='font-montserrat font-medium text-base leading-5 text-white pt-[5px] max-lg:pt-0 pb-[21px] max-sm:text-sm font-Montserrat'>Released May 17, 2024</p>
+                            <p className='font-medium text-base leading-5 pt-[5px] max-lg:pt-0 pb-[21px] max-sm:text-sm font-Montserrat text-light-gray'>Released May 17, 2024</p>
                         </div>
                     </div>
                 </div>
