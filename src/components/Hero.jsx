@@ -6,41 +6,65 @@ import { DownArrow } from '../utils/icons'
 import { useNavigate } from 'react-router-dom'
 
 const Hero = () => {
-    const [text, setText] = useState("HIT ME HARD AND SOFT")
+    const [text, setText] = useState("HIT ME HARD AND ALL")
     const [alphabetText, setAlphaText] = useState()
+    const [activeDomain, setActiveDomain] = useState("all") 
     const navigate = useNavigate()
+
     const handleDomainChange = (newDomain) => {
+        setActiveDomain(newDomain) 
         navigate(`?value=${newDomain}`);
         setText(`HIT ME HARD AND ${newDomain.toUpperCase()}`)
-    };
-    const handleChange = (newText) => (
+    }
+
+    const handleChange = (newText) => {
         setAlphaText(`${newText}`)
-    )
+    }
+
     return (
         <div className='pt-[11px] pb-12 bg-off-white lg:h-screen'>
             <Header />
             <div className='container'>
                 <div className='flex items-center gap-[15px] pt-[17px] max-xl:overflow-x-auto pb-2'>
                     <div className='flex items-center gap-[5px]'>
-                        <CustomButton customOnClick={() => handleDomainChange("all")} classStyle="!text-xs px-[13.48px] py-[5.84px] !bg-black text-white hover:text-black hover:!bg-transparent" text="All" />
-                        <CustomButton customOnClick={() => handleDomainChange("pop")} classStyle="!text-xs text-custom-black py-[5.84px] px-[11.37px] hover:!bg-custom-black hover:text-white" text="Pop" />
-                        <CustomButton customOnClick={() => handleDomainChange("rock")} classStyle="!text-xs text-custom-black py-[5.84px] px-[11.8px] hover:!bg-custom-black hover:text-white" text="Rock" />
-                        <CustomButton customOnClick={() => handleDomainChange("music")} classStyle="!text-xs text-custom-black !py-[5.84px] !px-[9.5px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]" text="More" icon={<DownArrow classStyle="group-hover:stroke-white transition-all duration-300" />} />
+                        {["all", "pop", "rock", "music"].map((domain) => (
+                            <CustomButton
+                                key={domain}
+                                customOnClick={() => handleDomainChange(domain)}
+                                classStyle={`!text-xs flex items-center gap-[5px] py-[5.84px] group ${domain === "music"
+                                        ? "!px-[9.5px]" 
+                                        : "px-[13.48px]" 
+                                    } ${activeDomain === domain
+                                        ? "!bg-black text-white"
+                                        : "text-custom-black hover:!bg-custom-black hover:text-white"
+                                    }`}
+                                text={domain.charAt(0).toUpperCase() + domain.slice(1)}
+                                icon={domain === "music" && <DownArrow classStyle="group-hover:stroke-white transition-all duration-300" />}
+                            />
+                        ))}
                     </div>
+
                     <div className='flex items-center gap-[2px]'>
-                        {ALPHABET_LIST.map(function (item, index) {
-                            return <a onClick={() => handleChange(item)} key={index} href="#link" className='flex items-center hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl'>{item}</a>
-                        })}
+                        {ALPHABET_LIST.map((item, index) => (
+                            <a
+                                onClick={() => handleChange(item)}
+                                key={index}
+                                href="#link"
+                                className='flex items-center hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl'
+                            >
+                                {item}
+                            </a>
+                        ))}
                     </div>
                 </div>
                 <div className='bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20'>
-                    <h1 className='font-Montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl'>{text}</h1>
+                    <h1 className='font-Montserrat text-5xl leading-custom-3xl text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl max-sm:mx-auto'>{text}</h1>
                     <img src="/assets/images/webp/hero.webp" alt="hero" className='size-[261px] max-lg:size-48 max-sm:mx-auto max-sm:mt-4 pointer-events-none' />
                     <div className='absolute flex items-center gap-[26px] -bottom-16 max-lg:-bottom-10 max-sm:-bottom-6'>
                         <img src="/assets/images/webp/profile.webp" alt="profile" className='size-[206px] max-lg:size-32 max-sm:size-20 pointer-events-none' />
                         <div>
                             <p className='font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg'>Billie Eilish {alphabetText}</p>
-                            <p className='font-montserrat font-medium text-base leading-5 text-white pt-[5px] max-lg:pt-0 pb-[21px] max-sm:text-sm font-Montserrat'>Relesed May 17, 2024</p>
+                            <p className='font-montserrat font-medium text-base leading-5 text-white pt-[5px] max-lg:pt-0 pb-[21px] max-sm:text-sm font-Montserrat'>Released May 17, 2024</p>
                         </div>
                     </div>
                 </div>
