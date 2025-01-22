@@ -6,12 +6,13 @@ function App() {
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route path="/" element={<Hero />} />
-        </Routes>
+          <Routes>
+          <Route path='/' element={<Hero />} />
+          <Route path='/:category' element={<Hero />} />
+          </Routes>
       </BrowserRouter>
     </>
   );
-}
+} 
 
 export default App;
