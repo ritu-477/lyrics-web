@@ -10,7 +10,7 @@ const Hero = () => {
     const [selectedCategory, setSelectedCategory] = useState(category);
     const [artistName, setArtistName] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
-    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
     const [selectedLetter, setSelectedLetter] = useState(""); 
     const navigate = useNavigate();
 
@@ -18,18 +18,18 @@ const Hero = () => {
         const letter = searchParams.get("letter");
         if (letter) {
             setArtistName(letter.toUpperCase());
-            setSelectedLetter(letter.toUpperCase());
+            setSelectedLetter(letter.toUpperCase()); 
         } else {
             setArtistName("");
-            setSelectedLetter("");
+            setSelectedLetter(""); 
         }
     }, [searchParams]);
 
     const handleChange = (letter) => {
         const newName = letter.toUpperCase();
         setArtistName(newName);
-        setSelectedLetter(newName);
-        setSearchParams({ ...searchParams, category: letter.toLowerCase() });
+        setSelectedLetter(newName); 
+        setSearchParams({ ...searchParams, letter: letter.toLowerCase() });
     };
 
     const handleTextChange = (category) => {
@@ -39,7 +39,7 @@ const Hero = () => {
     };
 
     const toggleDropdown = () => {
-        setIsDropdownOpen((prev) => !prev); 
+        setIsDropdownOpen((prev) => !prev);
     };
 
     return (
@@ -63,10 +63,9 @@ const Hero = () => {
                             classStyle={`${selectedCategory === "rock" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.8px] hover:!bg-custom-black hover:text-white`}
                             text="Rock"
                         />
-                        {/* More Button with Dropdown */}
                         <div className="relative">
                             <CustomButton
-                                customOnClick={toggleDropdown} // Toggle dropdown on click
+                                customOnClick={toggleDropdown} 
                                 classStyle={`${selectedCategory === "music" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[9.2px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]`}
                                 text="More"
                                 icon={<DownArrow classStyle={`${selectedCategory === "music" ? "stroke-white" : ""} group-hover:stroke-white transition-all duration-300`} />}
@@ -100,7 +99,7 @@ const Hero = () => {
                             <p
                                 onClick={() => handleChange(item)}
                                 key={index}
-                                className={`flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${selectedLetter === item.toUpperCase() ? "bg-custom-black text-white" : ""}`} // Apply active styles
+                                className={`flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${selectedLetter === item.toUpperCase() ? "bg-custom-black text-white" : ""}`} 
                             >
                                 {item}
                             </p>
