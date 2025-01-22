@@ -8,7 +8,7 @@ import { DownArrow } from '../utils/icons';
 const Hero = () => {
     const { category = "all" } = useParams();
     const [selectedCategory, setSelectedCategory] = useState(category);
-    const [artistName, setArtistName] = useState("");
+    const [alphabetText, setArtistName] = useState("");
     const [searchParams, setSearchParams] = useSearchParams();
     const [isDropdownOpen, setIsDropdownOpen] = useState(false); 
     const [selectedLetter, setSelectedLetter] = useState(""); 
@@ -43,10 +43,10 @@ const Hero = () => {
     };
 
     return (
-        <div className="pt-[11px] pb-12 bg-off-white lg:h-screen">
+        <div className="pt-[11px] mb-12 bg-off-white lg:h-screen">
             <Header />
             <div className="container mx-auto">
-                <div className="flex items-center gap-[15px] pt-[17px] max-xl:overflow-x-auto pb-2">
+                <div className="flex items-center gap-[15px] pt-[17px] pb-2 max-xl:flex-col">
                     <div className="flex items-center gap-[5px]">
                         <CustomButton
                             customOnClick={() => handleTextChange("all")}
@@ -73,40 +73,41 @@ const Hero = () => {
                             {isDropdownOpen && (
                                 <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md z-10">
                                     <button
+                                        onClick={() => handleTextChange('all')}
+                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left"
+                                    >
+                                        All
+                                    </button>
+                                    <button
                                         onClick={() => handleTextChange('pop')}
-                                        className="text-black py-2 px-4 hover:bg-custom-black hover:text-white w-full text-left"
+                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left"
                                     >
                                         Pop
                                     </button>
                                     <button
                                         onClick={() => handleTextChange('rock')}
-                                        className="text-black py-2 px-4 hover:bg-custom-black hover:text-white w-full text-left"
+                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left"
                                     >
                                         Rock
-                                    </button>
-                                    <button
-                                        onClick={() => handleTextChange('music')}
-                                        className="text-black py-2 px-4 hover:bg-custom-black hover:text-white w-full text-left"
-                                    >
-                                        Music
                                     </button>
                                 </div>
                             )}
                         </div>
                     </div>
-                    <div className="flex items-center gap-[2px]">
+                    <div className="flex items-center gap-[2px] lg:justify-center xl:justify-start max-lg:overflow-x-auto whitespace-nowrap w-full">
                         {ALPHABET_LIST.map((item, index) => (
                             <p
                                 onClick={() => handleChange(item)}
                                 key={index}
-                                className={`flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${selectedLetter === item.toUpperCase() ? "bg-custom-black text-white" : ""}`} 
+                                className={`flex-shrink-0 flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${selectedLetter === item.toUpperCase() ? "bg-custom-black text-white" : ""
+                                    }`}
                             >
                                 {item}
                             </p>
                         ))}
                     </div>
                 </div>
-                <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
+                <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] max-sm:mt-6 mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
                     <h1 className="font-Montserrat leading-custom-3xl text-5xl uppercase text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl max-sm:mx-auto">
                         hit me hard and {selectedCategory === "music" ? "music" : selectedCategory === "pop" ? "pop" : selectedCategory === "rock" ? "rock" : "all"}
                     </h1>
@@ -123,7 +124,7 @@ const Hero = () => {
                         />
                         <div>
                             <p className="font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg">
-                                Billie Eilish {artistName}
+                                Billie Eilish {alphabetText}
                             </p>
                             <p className="font-Montserrat font-medium text-base leading-5 text-light-gray pt-[5px] max-lg:pt-0 max-sm:pb-8 pb-[21px] max-sm:text-sm">
                                 Released May 17, 2024
