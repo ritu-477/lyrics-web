@@ -20,7 +20,7 @@ const Hero = () => {
 
     const [, setText] = useState();
     const [searchParams, setSearchParams] = useSearchParams();
-    const value = searchParams.get('value');
+    const value = searchParams.get('value')?.toUpperCase()
     const handleChange = (value, item) => {
         setSearchParams({ value:value.toLowerCase()});
         setText(`${item}`);
@@ -75,19 +75,19 @@ const Hero = () => {
                                 <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md z-10">
                                     <button
                                         onClick={() => handleTextChange('all')}
-                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left"
+                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md"
                                     >
                                         All
                                     </button>
                                     <button
                                         onClick={() => handleTextChange('pop')}
-                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left"
+                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md"
                                     >
                                         Pop
                                     </button>
                                     <button
                                         onClick={() => handleTextChange('rock')}
-                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left"
+                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md"
                                     >
                                         Rock
                                     </button>
@@ -100,7 +100,7 @@ const Hero = () => {
                             <p
                                 onClick={() => handleChange(item)}
                                 key={index}
-                                className={`flex-shrink-0 flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${value === item.toUpperCase() ? "bg-custom-black text-white" : ""
+                                className={`flex-shrink-0 max-lg:mb-2 flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${value === item.toUpperCase() ? "bg-custom-black text-white" : ""
                                     }`}
                             >
                                 {item}
@@ -108,7 +108,7 @@ const Hero = () => {
                         ))}
                     </div>
                 </div>
-                <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] max-sm:mt-6 mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
+                <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] max-lg:mt-6 mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
                     <h1 className="font-Montserrat leading-custom-3xl text-5xl uppercase text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl max-sm:mx-auto">
                         hit me hard and {id === "music" ? "music" : id === "pop" ? "pop" : id === "rock" ? "rock" : "all"}
                     </h1>
@@ -117,14 +117,15 @@ const Hero = () => {
                         alt="hero"
                         className="size-[261px] max-lg:size-48 max-sm:mx-auto max-sm:mt-4 pointer-events-none"
                     />
-                    <div className="absolute flex items-center gap-[26px] -bottom-16 max-lg:-bottom-10 max-sm:-bottom-6">
+                    <div className="absolute flex items-center gap-[26px] -bottom-16 max-lg:-bottom-10 max-sm:-bottom-5">
                         <img
                             src="/assets/images/webp/profile.webp"
                             alt="profile"
                             className="size-[206px] max-lg:size-32 max-sm:size-20 pointer-events-none"
                         />
                         <div>
-                            <p className="font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg">
+                            <p
+                                className="font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg">
                                 Billie Eilish {value}
                             </p>
                             <p className="font-Montserrat font-medium text-base leading-5 text-light-gray pt-[5px] max-lg:pt-0 max-sm:pb-8 pb-[21px] max-sm:text-sm">
