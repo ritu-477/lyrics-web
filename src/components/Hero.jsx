@@ -66,7 +66,7 @@ const Hero = () => {
                                 <p
                                     onClick={() => handleChange(item)}
                                     key={index}
-                                    className={`flex items-center hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl`}
+                                    className={`flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl`}
                                 >
                                     {item}
                                 </p>
