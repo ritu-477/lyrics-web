@@ -6,30 +6,40 @@ import { ALPHABET_LIST } from '../utils/helper';
 import { DownArrow } from '../utils/icons';
 
 const Hero = () => {
-    const { category = "all" } = useParams(); 
-    const [selectedCategory, setSelectedCategory] = useState(category); 
+    const { category = "all" } = useParams();
+    const [selectedCategory, setSelectedCategory] = useState(category);
     const [artistName, setArtistName] = useState("");
-    const [searchParams, setSearchParams] = useSearchParams(); 
+    const [searchParams, setSearchParams] = useSearchParams();
+    const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+    const [selectedLetter, setSelectedLetter] = useState(""); 
     const navigate = useNavigate();
 
     useEffect(() => {
         const letter = searchParams.get("letter");
         if (letter) {
             setArtistName(letter.toUpperCase());
+            setSelectedLetter(letter.toUpperCase());
         } else {
             setArtistName("");
+            setSelectedLetter("");
         }
     }, [searchParams]);
 
     const handleChange = (letter) => {
         const newName = letter.toUpperCase();
         setArtistName(newName);
-        setSearchParams({ ...searchParams, letter: letter.toLowerCase() });
+        setSelectedLetter(newName);
+        setSearchParams({ ...searchParams, category: letter.toLowerCase() });
     };
 
     const handleTextChange = (category) => {
         setSelectedCategory(category);
+        setIsDropdownOpen(false); 
         navigate(`/${category.toLowerCase()}`);
+    };
+
+    const toggleDropdown = () => {
+        setIsDropdownOpen((prev) => !prev); 
     };
 
     return (
@@ -53,25 +63,48 @@ const Hero = () => {
                             classStyle={`${selectedCategory === "rock" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.8px] hover:!bg-custom-black hover:text-white`}
                             text="Rock"
                         />
-                        <CustomButton
-                            customOnClick={() => handleTextChange("music")}
-                            classStyle={`${selectedCategory === "music" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[9.2px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]`}
-                            text="More"
-                            icon={<DownArrow classStyle={`${selectedCategory === "music" ? "stroke-white" : ""} group-hover:stroke-white transition-all duration-300`} />}
-                        />
+                        {/* More Button with Dropdown */}
+                        <div className="relative">
+                            <CustomButton
+                                customOnClick={toggleDropdown} // Toggle dropdown on click
+                                classStyle={`${selectedCategory === "music" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[9.2px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]`}
+                                text="More"
+                                icon={<DownArrow classStyle={`${selectedCategory === "music" ? "stroke-white" : ""} group-hover:stroke-white transition-all duration-300`} />}
+                            />
+                            {isDropdownOpen && (
+                                <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md z-10">
+                                    <button
+                                        onClick={() => handleTextChange('pop')}
+                                        className="text-black py-2 px-4 hover:bg-custom-black hover:text-white w-full text-left"
+                                    >
+                                        Pop
+                                    </button>
+                                    <button
+                                        onClick={() => handleTextChange('rock')}
+                                        className="text-black py-2 px-4 hover:bg-custom-black hover:text-white w-full text-left"
+                                    >
+                                        Rock
+                                    </button>
+                                    <button
+                                        onClick={() => handleTextChange('music')}
+                                        className="text-black py-2 px-4 hover:bg-custom-black hover:text-white w-full text-left"
+                                    >
+                                        Music
+                                    </button>
+                                </div>
+                            )}
+                        </div>
                     </div>
                     <div className="flex items-center gap-[2px]">
-                        {ALPHABET_LIST.map(function (item, index) {
-                            return (
-                                <p
-                                    onClick={() => handleChange(item)}
-                                    key={index}
-                                    className={`flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl`}
-                                >
-                                    {item}
-                                </p>
-                            );
-                        })}
+                        {ALPHABET_LIST.map((item, index) => (
+                            <p
+                                onClick={() => handleChange(item)}
+                                key={index}
+                                className={`flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${selectedLetter === item.toUpperCase() ? "bg-custom-black text-white" : ""}`} // Apply active styles
+                            >
+                                {item}
+                            </p>
+                        ))}
                     </div>
                 </div>
                 <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
