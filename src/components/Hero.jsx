@@ -15,14 +15,14 @@ const Hero = () => {
     const handleTextChange = (id) => {
         navigate(`/${id}`);
         setActive(id);
-        setIsDropdownOpen(false); // Close the dropdown when navigating
+        setIsDropdownOpen(false); 
     };
 
     const [, setText] = useState();
     const [searchParams, setSearchParams] = useSearchParams();
     const value = searchParams.get('value');
     const handleChange = (value, item) => {
-        setSearchParams({ value });
+        setSearchParams({ value:value.toLowerCase()});
         setText(`${item}`);
     };
 
