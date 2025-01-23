@@ -12,7 +12,7 @@ const AlphabetsTable = () => {
     };
 
     return (
-        <div className="border-t border-t-light-purple border-b border-b-light-purple lg:pb-[37px] lg:pt-[42px] py-6 mb-8">
+        <div className="border-t border-t-light-purple border-b border-b-light-purple lg:pb-[37px] lg:pt-[42px] py-6 sm:mb-8 mb-2">
             <div className="container mx-auto">
                 <div className="flex max-w-[829px] mx-auto items-center gap-[2px] lg:justify-center xl:justify-start max-lg:overflow-x-auto whitespace-nowrap w-full">
                     {ALPHABET_LIST.map((item, index) => (

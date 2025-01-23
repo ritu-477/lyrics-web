@@ -26,6 +26,10 @@ module.exports = {
         'custom-blue':"#007BFF"
       },
 
+      fontSize: {
+         'custom-xs':'10px'
+      },
+
       lineHeight: {
         'custom-xl': "150%",
         'custom-2xl': "131.25%",

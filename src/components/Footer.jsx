@@ -22,20 +22,20 @@ const Footer = () => {
                             </ul>
                         </div>
                     ))}
-                    <div className='lg:-mt-6'>
+                    <div className='lg:-mt-6 sm:max-w-[312px] w-full'>
                         <h3 className='text-sm text-black font-semibold leading-6 pb-[26px]'>Follow us</h3>
                         {SOCIAL_LINKS.map((social, index) => (
                             <a
                                 key={index}
                                 href={social.link}
                                 target='_blank'
-                                className='bg-white max-w-[312px] w-full py-3 hover:bg-offwhite group transition-all duration-500 ease-in-out pl-[25px] pr-[14.46px] rounded-[10px] flex justify-between gap-[160px] mb-[14px]'
+                                className='bg-white sm:max-w-[312px] w-full py-3 hover:bg-offwhite group transition-all duration-500 ease-in-out pl-4 lg:pl-[25px] lg:pr-[14.46px] pr-2 rounded-[10px] flex justify-between gap-[160px] sm:mb-[14px] mb-2'
                             >
                                 <p className='text-sm text-custom-black font-semibold leading-6 pt-1'>
                                     {social.name}
                                 </p>
                                 <img
-                                    className='group-hover:scale-125 transition-all duration-500 ease-in-out'
+                                    className='group-hover:scale-125 transition-all duration-500 ease-in-out size-[30.94px]'
                                     src={`./assets/images/svg/${social.icon}`}
                                     alt={social.name}
                                 />

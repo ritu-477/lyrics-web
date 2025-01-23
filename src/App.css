@@ -3,6 +3,7 @@
 body{
   font-family: 'poppins', sans-serif;
   background: #FAFAFF;
+  scroll-behavior: smooth !important;
 }
 
 .header-shadow{

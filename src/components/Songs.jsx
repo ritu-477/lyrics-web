@@ -19,7 +19,7 @@ const Songs = () => {
     }
 
     return (
-        <div className='pt-10 max-sm:pt-0 pb-12'>
+        <div className='pt-10 max-sm:pt-2 pb-12'>
             <div className='max-w-[1161px] mx-auto container'>
                 <Heading text={'Songs'} classStyle={'max-lg:pb-4'} />
                 <div className='flex items-center justify-center gap-[52px] max-md:gap-6 max-sm:gap-0 max-lg:flex-wrap'>
@@ -31,7 +31,7 @@ const Songs = () => {
                                         <th
                                             key={i}
                                             className={`${i === 3 ? 'text-right' : 'text-left max-sm:pr-3'
-                                                } text-sm leading-6 font-semibold pb-[33px]`}
+                                                } text-sm leading-6 font-semibold sm:pb-[33px] pb-6`}
                                         >
                                             {item}
                                         </th>
@@ -40,20 +40,20 @@ const Songs = () => {
                             </tr>
                         </thead>
                         <tbody>
-                            {SONGS_LIST.map(function (item, i) {
+                            {SONGS_LIST.map(function (obj, i) {
                                 return (
                                     <tr key={i}>
-                                        <td className='text-sm leading-6 text-custom-light-gray pb-11 max-lg:pr-1'>
+                                        <td className='sm:text-sm text-xs leading-6 text-custom-light-gray sm:pb-11 pb-7 max-lg:pr-1'>
                                             0{i + 1}
                                         </td>
-                                        <td className='font-semibold text-sm leading-6 pb-11 lg:w-7/12 max-lg:w-5/12'>
-                                            {item.song}
+                                        <td className='font-semibold max-sm:pr-3 sm:text-sm text-xs leading-6 sm:pb-11 pb-7 lg:w-7/12 max-lg:w-5/12 max-sm:w-4/12'>
+                                            {obj.song}
                                         </td>
-                                        <td className='text-custom-gray text-xs leading-6 pb-11'>
-                                            {item.date}
+                                        <td className='text-custom-gray text-xs text-custom-xs leading-5 pb-7 sm:leading-6 sm:pb-11'>
+                                            {obj.date}
                                         </td>
-                                        <td className='text-text-custom-gray text-xs leading-6 text-right pb-11'>
-                                            {item.times}
+                                        <td className='text-text-custom-gray text-xs leading-6 text-right pb-7 sm:pb-11'>
+                                            {obj.times}
                                         </td>
                                     </tr>
                                 )
