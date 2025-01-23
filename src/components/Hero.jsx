@@ -44,7 +44,7 @@ const Hero = () => {
     }, []);
 
     return (
-        <div className="pt-[11px] mb-12 bg-off-white lg:h-screen">
+        <div className="pt-[11px] mb-12 bg-off-white">
             <Header />
             <div className="container mx-auto">
                 <div className="flex items-center gap-[15px] pt-[17px] pb-2 max-xl:flex-col">
