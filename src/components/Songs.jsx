@@ -49,7 +49,7 @@ const Songs = () => {
                                         <td className='font-semibold max-sm:pr-3 sm:text-sm text-xs leading-6 sm:pb-11 pb-7 lg:w-7/12 max-lg:w-5/12 max-sm:w-4/12'>
                                             {obj.song}
                                         </td>
-                                        <td className='text-custom-gray text-xs text-custom-xs leading-5 pb-7 sm:leading-6 sm:pb-11'>
+                                        <td className='text-custom-gray sm:text-xs text-custom-xs leading-5 pb-7 sm:leading-6 sm:pb-11'>
                                             {obj.date}
                                         </td>
                                         <td className='text-text-custom-gray text-xs leading-6 text-right pb-7 sm:pb-11'>
@@ -60,7 +60,7 @@ const Songs = () => {
                             })}
                         </tbody>
                     </table>
-                    <div>
+                    <div className='flex flex-col'>
                         <div className='relative flex items-center justify-center text-center w-[300px] h-[600px] bg-custom-blue rounded-[20px] max-lg:w-[500px] max-lg:h-[400px] max-md:!w-[300px]'>
                             <input
                                 type='file'

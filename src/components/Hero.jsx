@@ -15,14 +15,14 @@ const Hero = () => {
     const handleTextChange = (id) => {
         navigate(`/${id}`);
         setActive(id);
-        setIsDropdownOpen(false); 
+        setIsDropdownOpen(false);
     };
 
     const [, setText] = useState();
     const [searchParams, setSearchParams] = useSearchParams();
     const value = searchParams.get('value')?.toUpperCase()
     const handleChange = (value, item) => {
-        setSearchParams({ value:value.toLowerCase()});
+        setSearchParams({ value: value.toLowerCase() });
         setText(`${item}`);
     };
 
@@ -49,60 +49,23 @@ const Hero = () => {
             <div className="container mx-auto">
                 <div className="flex items-center gap-[15px] pt-[17px] pb-2 max-xl:flex-col">
                     <div className="flex items-center gap-[5px]">
-                        <CustomButton
-                            customOnClick={() => handleTextChange("all")}
-                            classStyle={`${id === "all" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !px-[13.48px] !py-[5.84px] hover:!bg-custom-black hover:text-white`}
-                            text="All"
-                        />
-                        <CustomButton
-                            customOnClick={() => handleTextChange("pop")}
-                            classStyle={`${id === "pop" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.37px] hover:!bg-custom-black hover:text-white`}
-                            text="Pop"
-                        />
-                        <CustomButton
-                            customOnClick={() => handleTextChange("rock")}
-                            classStyle={`${id === "rock" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.8px] hover:!bg-custom-black hover:text-white`}
-                            text="Rock"
-                        />
+                        <CustomButton customOnClick={() => handleTextChange("all")} classStyle={`${id === "all" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !px-[13.48px] !py-[5.84px] hover:!bg-custom-black hover:text-white`} text="All" />
+                        <CustomButton customOnClick={() => handleTextChange("pop")} classStyle={`${id === "pop" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.37px] hover:!bg-custom-black hover:text-white`} text="Pop" />
+                        <CustomButton customOnClick={() => handleTextChange("rock")} classStyle={`${id === "rock" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.8px] hover:!bg-custom-black hover:text-white`} text="Rock" />
                         <div className="relative" ref={dropdownRef}>
-                            <CustomButton
-                                customOnClick={toggleDropdown}
-                                classStyle={`${id === "music" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[9.2px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]`}
-                                text="More"
-                                icon={<DownArrow classStyle={`${id === "music" ? "stroke-white" : ""} group-hover:stroke-white transition-all duration-300`} />}
-                            />
+                            <CustomButton customOnClick={toggleDropdown} classStyle={`${id === "music" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[9.2px] hover:!bg-custom-black hover:text-white group flex items-center gap-[5px]`} text="More" icon={<DownArrow classStyle={`${id === "music" ? "stroke-white" : ""} group-hover:stroke-white transition-all duration-300`} />} />
                             {isDropdownOpen && (
                                 <div className="absolute left-0 mt-2 bg-white shadow-lg rounded-md z-10">
-                                    <button
-                                        onClick={() => handleTextChange('all')}
-                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md"
-                                    >
-                                        All
-                                    </button>
-                                    <button
-                                        onClick={() => handleTextChange('pop')}
-                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md"
-                                    >
-                                        Pop
-                                    </button>
-                                    <button
-                                        onClick={() => handleTextChange('rock')}
-                                        className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md"
-                                    >
-                                        Rock
-                                    </button>
+                                    <button onClick={() => handleTextChange('all')} className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md">All</button>
+                                    <button onClick={() => handleTextChange('pop')} className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md">Pop</button>
+                                    <button onClick={() => handleTextChange('rock')} className="text-black py-2 px-4 hover:bg-blue-500 hover:text-white w-full text-left rounded-md">Rock</button>
                                 </div>
                             )}
                         </div>
                     </div>
                     <div className="flex items-center gap-[2px] lg:justify-center xl:justify-start max-lg:overflow-x-auto whitespace-nowrap w-full">
                         {ALPHABET_LIST.map((item, index) => (
-                            <p
-                                onClick={() => handleChange(item)}
-                                key={index}
-                                className={`flex-shrink-0 max-lg:mb-2 flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${value === item.toUpperCase() ? "bg-custom-black text-white" : ""
-                                    }`}
-                            >
+                            <p onClick={() => handleChange(item)} key={index} className={`flex-shrink-0 max-lg:mb-2 flex items-center cursor-pointer hover:bg-custom-black size-[29px] justify-center rounded-full transition-all duration-300 hover:text-white hover:font-medium text-black text-xs leading-custom-xl ${value === item.toUpperCase() ? "bg-custom-black text-white" : ""}`}>
                                 {item}
                             </p>
                         ))}
@@ -112,18 +75,10 @@ const Hero = () => {
                     <h1 className="font-Montserrat leading-custom-3xl text-5xl uppercase text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl max-sm:mx-auto">
                         hit me hard and {id === "music" ? "music" : id === "pop" ? "pop" : id === "rock" ? "rock" : "all"}
                     </h1>
-                    <img
-                        src="/assets/images/webp/hero.webp"
-                        alt="hero"
-                        className="size-[261px] max-lg:size-48 max-sm:mx-auto max-sm:mt-4 pointer-events-none"
-                    />
+                    <img src="/assets/images/webp/hero.webp" alt="hero" className="size-[261px] max-lg:size-48 max-sm:mx-auto max-sm:mt-4 pointer-events-none" />
                     <div className="absolute flex items-center gap-[26px] -bottom-16 max-lg:-bottom-10 max-sm:-bottom-5">
-                        <img
-                            src="/assets/images/webp/profile.webp"
-                            alt="profile"
-                            className="size-[206px] max-lg:size-32 max-sm:size-20 pointer-events-none"
-                        />
-                        <div>
+                        <img src="/assets/images/webp/profile.webp" alt="profile" className="size-[206px] max-lg:size-32 max-sm:size-20 pointer-events-none" />
+                        <div className="flex flex-col">
                             <p
                                 className="font-semibold text-[32px] max-lg:text-2xl leading-custom-2xl text-white max-sm:text-lg">
                                 Billie Eilish {value}
