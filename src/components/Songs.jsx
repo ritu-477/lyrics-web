@@ -4,24 +4,24 @@ import { CrossIcon } from '../utils/icons'
 import Heading from '../common/Heading';
 
 const Songs = () => {
-    const [uploads, setUploads] = useState(null)
-    const [showImage, setShowImage] = useState(false)
+    const [uploads, setUploads] = useState(null);
+    const [showImage, setShowImage] = useState(false);
 
-    const handleChange = e => {
-        const imgUpload = URL.createObjectURL(e.target.files[0])
-        setUploads(imgUpload)
-        setShowImage(true)
-    }
+    const handleChange = (e) => {
+        const imgUpload = URL.createObjectURL(e.target.files[0]);
+        setUploads(imgUpload);
+        setShowImage(true);
+    };
 
     const handleRemoveImage = () => {
-        setUploads(null)
-        setShowImage(false)
-    }
+        setUploads(null);
+        setShowImage(false);
+    };
 
     return (
-        <div className='pt-10 max-sm:pt-2 pb-12'>
+        <div className='pt-12 max-sm:pt-2 pb-[45px]'>
             <div className='max-w-[1161px] mx-auto container'>
-                <Heading text={'Songs'} classStyle={'max-lg:pb-4'} />
+                <Heading text={'Songs'} classStyle={'max-lg:pb-6'} />
                 <div className='flex items-center justify-center gap-[52px] max-md:gap-6 max-sm:gap-0 max-lg:flex-wrap'>
                     <table className='w-full !max-md:overflow-x-auto !whitespace-nowrap'>
                         <thead>
@@ -61,31 +61,36 @@ const Songs = () => {
                         </tbody>
                     </table>
                     <div className='flex flex-col'>
-                        <div className='relative flex items-center justify-center text-center w-[300px] h-[600px] bg-custom-blue rounded-[20px] max-lg:w-[500px] max-lg:h-[400px] max-md:!w-[300px]'>
+                        <div
+                            className="relative flex items-center justify-center text-center cursor-pointer w-[300px] h-[600px] bg-custom-blue rounded-[20px] max-lg:w-[500px] max-lg:h-[400px] max-md:!w-[300px]"
+                            onClick={() => document.getElementById('my-image').click()}
+                        >
                             <input
-                                type='file'
-                                id='my-image'
+                                type="file"
+                                id="my-image"
                                 hidden
                                 onChange={handleChange}
                                 multiple
                             />
                             <label
-                                htmlFor='my-image'
-                                className={`cursor-pointer text-white text-sm leading-6 font-normal ${showImage ? 'hidden' : 'block'
-                                    }`}
+                                htmlFor="my-image"
+                                className={`cursor-pointer text-white text-sm leading-6 font-normal ${showImage ? 'hidden' : 'block'}`}
                             >
                                 Add Place
                             </label>
                             <img
-                                width={300} height={600}
-                                className={`w-[300px] h-[600px] object-cover rounded-[20px] max-lg:w-[500px] max-lg:h-[400px] max-md:!w-[300px] ${showImage ? 'block' : 'hidden'
-                                    }`}
+                                width={300}
+                                height={600}
+                                className={`w-[300px] object-cover h-[600px] rounded-[20px] max-lg:w-[500px] max-lg:h-[400px] max-md:!w-[300px] ${showImage ? 'block' : 'hidden'}`}
                                 src={uploads}
-                                alt='Uploaded'
+                                alt="Uploaded"
                             />
                             <div
-                                className='absolute top-5 right-5 flex flex-col gap-2 cursor-pointer'
-                                onClick={handleRemoveImage}
+                                className="absolute top-5 right-5 flex flex-col gap-2 cursor-pointer"
+                                onClick={(e) => {
+                                    e.stopPropagation(); 
+                                    handleRemoveImage();
+                                }}
                             >
                                 <span className={`${showImage ? 'block' : 'hidden'}`}>
                                     <CrossIcon />

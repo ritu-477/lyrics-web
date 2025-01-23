@@ -7,7 +7,7 @@ const Footer = () => {
     return (
         <div className='lg:pt-[59px] pt-10 bg-off-white lg:pb-[30px] pb-6'>
             <div className="container max-w-[1119px] mx-auto">
-                <div className="flex max-lg:flex-wrap justify-between lg:pb-[89px] pb-10 max-lg:gap-[60px] max-md:gap-[30px]">
+                <div className="flex max-sm:flex-wrap justify-between lg:pb-[75px] pb-10 max-lg:gap-[60px] max-md:gap-[30px]">
                     {FOOTER_DATA.map((obj, index) => (
                         <div className='flex flex-col' key={index}>
                             <h3 className='text-sm text-custom-black font-semibold leading-6 lg:pb-[37px] pb-6'>
@@ -22,14 +22,14 @@ const Footer = () => {
                             </ul>
                         </div>
                     ))}
-                    <div className='lg:-mt-6 sm:max-w-[312px] w-full'>
+                    <div className='lg:-mt-6 md:max-w-[312px] w-full max-w-[290px]'>
                         <h3 className='text-sm text-black font-semibold leading-6 pb-[26px]'>Follow us</h3>
                         {SOCIAL_LINKS.map((social, index) => (
                             <a
                                 key={index}
                                 href={social.link}
                                 target='_blank'
-                                className='bg-white sm:max-w-[312px] w-full py-3 hover:bg-offwhite group transition-all duration-500 ease-in-out pl-4 lg:pl-[25px] lg:pr-[14.46px] pr-2 rounded-[10px] flex justify-between gap-[160px] sm:mb-[14px] mb-2'
+                                className='bg-white md:max-w-[312px] max-w-[290px] w-full py-3 hover:bg-offwhite group transition-all duration-500 ease-in-out pl-4 lg:pl-[25px] lg:pr-[14.46px] pr-2 rounded-[10px] flex justify-between gap-[160px] sm:mb-[14px] mb-2'
                             >
                                 <p className='text-sm text-custom-black font-semibold leading-6 pt-1'>
                                     {social.name}
@@ -45,7 +45,7 @@ const Footer = () => {
                 </div>
             </div>
             <div className='border-b w-full border-light-purple'></div>
-            <div className='flex md:justify-between max-w-[1141px] mx-auto lg:pt-[41px] md:pt-8 pt-6 px-4 max-sm:flex-col justify-center'>
+            <div className='flex md:justify-between max-w-[1141px] mx-auto lg:pt-[31px] md:pt-8 pt-6 px-4 max-sm:flex-col justify-center'>
                 <p className='text-sm font-normal leading-6 max-sm:text-center'>
                     All rights reserved to Global Media Holdings Ltd. {currentYear}
                 </p>

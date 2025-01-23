@@ -9,3 +9,18 @@ body{
 .header-shadow{
   box-shadow: 0px 10px 10px 0px #31374D1A;
 }
+
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: black;
+  border-radius: 10px;
+}
+
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00A8E8;
+}

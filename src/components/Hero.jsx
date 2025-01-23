@@ -48,7 +48,7 @@ const Hero = () => {
             <Header />
             <div className="container mx-auto">
                 <div className="flex items-center gap-[15px] pt-[17px] pb-2 max-xl:flex-col">
-                    <div className="flex items-center gap-[5px]">
+                    <div className="flex items-center gap-[5px] justify-center">
                         <CustomButton customOnClick={() => handleTextChange("all")} classStyle={`${id === "all" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !px-[13.48px] !py-[5.84px] hover:!bg-custom-black hover:text-white`} text="All" />
                         <CustomButton customOnClick={() => handleTextChange("pop")} classStyle={`${id === "pop" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.37px] hover:!bg-custom-black hover:text-white`} text="Pop" />
                         <CustomButton customOnClick={() => handleTextChange("rock")} classStyle={`${id === "rock" ? "bg-custom-black text-white" : ""} !text-xs text-custom-black !py-[5.84px] !px-[11.8px] hover:!bg-custom-black hover:text-white`} text="Rock" />
@@ -71,7 +71,7 @@ const Hero = () => {
                         ))}
                     </div>
                 </div>
-                <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[38px] max-lg:mt-6 mt-[35px] relative pb-[43px] max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
+                <div className="bg-custom-black rounded-[22px] flex pl-12 pr-[43px] justify-between pt-[42px] max-lg:mt-6 mt-[35px] relative pb-11 max-sm:flex-wrap max-sm:pt-4 max-sm:px-5 max-sm:pb-20">
                     <h1 className="font-Montserrat leading-custom-3xl text-5xl uppercase text-white font-bold max-lg:text-4xl max-sm:text-center max-sm:text-3xl max-sm:mx-auto">
                         hit me hard and {id === "music" ? "music" : id === "pop" ? "pop" : id === "rock" ? "rock" : "all"}
                     </h1>
